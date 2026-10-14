@@ -19,7 +19,7 @@
   --space-5: 32px;
 
   --radius: 8px;
-  --max-width: 720px;
+  --max-width: 1100px;
 }
 
 *,
@@ -167,6 +167,374 @@ a:hover {
 /* A step with only some sub-steps checked off */
 .step-item.is-partly-done > .step-label .step-title {
   color: var(--color-primary-dark);
+}
+
+/* Two-column layout: step list on the left, prompt panel on the right */
+.step-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.step-list-column {
+  min-width: 0;
+}
+
+/* A leaf step title can be clicked to select it */
+.step-title.is-leaf {
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+
+.step-title.is-leaf:hover {
+  text-decoration: underline;
+}
+
+/* The selected leaf step */
+.step-item.is-selected > .step-label {
+  background-color: #e8f0fe;
+  box-shadow: inset 3px 0 0 var(--color-primary);
+}
+
+.step-item.is-selected > .step-label .step-title {
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
+
+/* A leaf step that has a saved response is marked with a dot after its title */
+.step-item.has-saved-response > .step-label .step-title::after {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: var(--space-2);
+  vertical-align: middle;
+  background-color: #15803d;
+  border-radius: 50%;
+}
+
+/* Prompt panel */
+.prompt-panel {
+  position: sticky;
+  top: var(--space-3);
+  min-width: 0;
+  padding: var(--space-3);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.prompt-panel h2 {
+  font-size: 1.1rem;
+}
+
+.prompt-placeholder {
+  margin-bottom: 0;
+}
+
+.prompt-for {
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.prompt-text {
+  display: block;
+  width: 100%;
+  min-height: 14rem;
+  max-height: 60vh;
+  padding: var(--space-2) var(--space-3);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  resize: vertical;
+}
+
+.prompt-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.prompt-copy {
+  padding: var(--space-2) var(--space-3);
+  font: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--color-primary);
+  border: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.prompt-copy:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.prompt-status {
+  font-size: 0.9rem;
+}
+
+/* Right column: the prompt panel with the response area under it */
+.step-side-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+/* Response area */
+.response-area {
+  min-width: 0;
+  padding: var(--space-3);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.response-area h2 {
+  font-size: 1.1rem;
+}
+
+.response-placeholder {
+  margin-bottom: 0;
+}
+
+.response-for {
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* Paste box and the check and load controls */
+.response-input {
+  display: block;
+  width: 100%;
+  min-height: 8rem;
+  max-height: 60vh;
+  padding: var(--space-2) var(--space-3);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  resize: vertical;
+}
+
+.response-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.response-check,
+.response-load {
+  padding: var(--space-2) var(--space-3);
+  font: inherit;
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.response-check {
+  color: #ffffff;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.response-check:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.response-load {
+  color: var(--color-primary-dark);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-primary);
+}
+
+.response-load:hover {
+  background-color: #e8f0fe;
+}
+
+.response-status {
+  font-size: 0.9rem;
+}
+
+/* Whether the response is saved on this device, or cannot be saved */
+.response-storage {
+  margin: var(--space-3) 0 0;
+  padding: var(--space-2) var(--space-3);
+  font-size: 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.response-storage.is-saved {
+  color: #14532d;
+  background-color: #f0fdf4;
+  border-color: #86efac;
+}
+
+.response-storage.is-unavailable {
+  color: #78350f;
+  background-color: #fff4e5;
+  border-color: var(--color-focus);
+}
+
+/* Validation messages */
+.response-errors {
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  color: #7f1d1d;
+  background-color: #fef2f2;
+  border: 1px solid #f87171;
+  border-radius: var(--radius);
+}
+
+.response-errors-title {
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+}
+
+.response-errors-list {
+  margin: 0;
+  padding-left: var(--space-3);
+  list-style: disc;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+/* The rendered document and form */
+.response-output {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.response-document,
+.response-form {
+  padding: var(--space-3);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow-wrap: anywhere;
+}
+
+.response-document-title,
+.response-form-title {
+  font-size: 1.1rem;
+}
+
+.response-section {
+  margin-bottom: var(--space-3);
+}
+
+.response-section:last-child {
+  margin-bottom: 0;
+}
+
+.response-section-heading {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.response-section-body {
+  margin-bottom: var(--space-2);
+}
+
+.response-section-items {
+  margin: 0 0 var(--space-2);
+  padding-left: var(--space-4);
+  list-style: disc;
+}
+
+.response-form-description {
+  font-size: 0.9rem;
+}
+
+.response-field {
+  margin-bottom: var(--space-3);
+}
+
+.response-field:last-child {
+  margin-bottom: 0;
+}
+
+.response-field-label {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-weight: 600;
+}
+
+.response-required {
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.response-control {
+  display: block;
+  width: 100%;
+  padding: var(--space-2);
+  font: inherit;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.response-field-help {
+  margin: var(--space-1) 0 0;
+  font-size: 0.85rem;
+}
+
+/* A checkbox field has the box and its label on one line */
+.response-field.is-checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.response-field.is-checkbox .response-control {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  accent-color: var(--color-primary);
+}
+
+.response-field.is-checkbox .response-field-label {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.response-field.is-checkbox .response-field-help {
+  flex-basis: 100%;
+  margin: 0;
+}
+
+/* Stack the panel under the list on narrower screens */
+@media (max-width: 800px) {
+  .step-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .prompt-panel {
+    position: static;
+  }
 }
 
 /* Message shown if JavaScript is turned off */
