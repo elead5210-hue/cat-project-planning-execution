@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step List</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    <script src="steps-data.js" defer></script>
+    <script src="step-list.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Step List</h1>
+    </header>
+
+    <main class="app-main">
+      <noscript>
+        <p class="noscript-message">This app needs JavaScript. Please turn JavaScript on in your browser and reload the page.</p>
+      </noscript>
+
+      <!-- The step list view is rendered into this container by app.js. -->
+      <div id="app" aria-live="polite"></div>
+    </main>
+  </body>
+</html>

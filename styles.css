@@ -1,0 +1,191 @@
+/* Base styles for the static app. Loaded directly by the browser, no build step. */
+
+:root {
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-text: #1f2933;
+  --color-muted: #616e7c;
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-border: #d9e2ec;
+  --color-focus: #f59e0b;
+
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+
+  --radius: 8px;
+  --max-width: 720px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 var(--space-3);
+  line-height: 1.25;
+}
+
+p {
+  margin: 0 0 var(--space-3);
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Page layout */
+.app-header {
+  padding: var(--space-4) var(--space-3);
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.app-header h1 {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+
+.app-main {
+  max-width: var(--max-width);
+  margin: var(--space-4) auto;
+  padding: 0 var(--space-3);
+}
+
+/* Container that views are rendered into */
+#app {
+  padding: var(--space-4);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+/* Step list view */
+.step-progress {
+  margin-bottom: var(--space-3);
+  font-size: 0.9rem;
+}
+
+.step-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step-item {
+  margin: 0;
+  padding: var(--space-1) 0;
+}
+
+/* Each nested level is indented and has a guide line on the left */
+.step-children {
+  margin: var(--space-1) 0 var(--space-1) var(--space-3);
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--color-border);
+}
+
+.step-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.step-label:hover {
+  background-color: var(--color-bg);
+}
+
+.step-checkbox {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0.15rem 0 0;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.step-title {
+  flex: 1;
+}
+
+/* Top-level steps stand out from their sub-steps */
+.step-list:not(.step-children) > .step-item > .step-label .step-title {
+  font-weight: 600;
+}
+
+/* A step that is checked off */
+.step-item.is-done > .step-label .step-title {
+  color: var(--color-muted);
+  text-decoration: line-through;
+}
+
+/* A step with only some sub-steps checked off */
+.step-item.is-partly-done > .step-label .step-title {
+  color: var(--color-primary-dark);
+}
+
+/* Message shown if JavaScript is turned off */
+.noscript-message {
+  max-width: var(--max-width);
+  margin: var(--space-3) auto;
+  padding: var(--space-3);
+  background-color: #fff4e5;
+  border: 1px solid var(--color-focus);
+  border-radius: var(--radius);
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+  .app-header h1 {
+    font-size: 1.25rem;
+  }
+
+  #app {
+    padding: var(--space-3);
+  }
+}
