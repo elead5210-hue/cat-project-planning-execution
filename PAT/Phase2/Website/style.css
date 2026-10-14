@@ -1,0 +1,157 @@
+/* Climate technology website - stylesheet */
+
+:root {
+  --green-dark: #1f7a33;
+  --green: #2e9e44;
+  --green-light: #e6f6e9;
+  --blue: #1d3f8a;
+  --sky: #cdeefd;
+  --sun: #ffd23f;
+  --text: #1c2b22;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--green-light);
+}
+
+/* Header */
+header {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--green-dark), var(--blue));
+  border-bottom: 8px solid var(--sun);
+}
+
+header h1 {
+  margin: 0 0 10px;
+  font-size: 2.4em;
+  line-height: 1.2;
+}
+
+header p {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+/* Main content */
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+section {
+  margin-bottom: 30px;
+  padding: 25px 30px;
+  background-color: var(--white);
+  border-left: 8px solid var(--green);
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+h2 {
+  margin-top: 0;
+  color: var(--green-dark);
+  font-size: 1.6em;
+}
+
+h3 {
+  color: var(--blue);
+}
+
+p {
+  margin: 0 0 15px;
+}
+
+/* Lists */
+ul,
+ol {
+  margin: 0;
+  padding-left: 25px;
+}
+
+li {
+  margin-bottom: 12px;
+}
+
+li strong {
+  color: var(--blue);
+}
+
+ul.technologies {
+  list-style-type: square;
+}
+
+ul.technologies li::marker {
+  color: var(--green);
+}
+
+ol.benefits li::marker {
+  color: var(--blue);
+  font-weight: bold;
+}
+
+/* Image */
+figure {
+  margin: 0 0 30px;
+  padding: 15px;
+  text-align: center;
+  background-color: var(--sky);
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+figcaption {
+  margin-top: 10px;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+/* Conclusion */
+section.conclusion {
+  border-left-color: var(--sun);
+  background-color: #fffbe6;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--white);
+  background-color: var(--green-dark);
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  section {
+    padding: 18px 20px;
+  }
+}

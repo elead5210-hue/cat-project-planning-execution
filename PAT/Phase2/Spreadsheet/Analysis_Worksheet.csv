@@ -1,0 +1,94 @@
+Technology and Climate Change - Analysis Worksheet,,
+"Setup: import Questionnaire_Responses.csv into a worksheet named Data (headings in row 1, respondents 1 to 10 in rows 2 to 11). Capture Q7 as Yes or No in columns H to L. Capture all other answers exactly as worded in the questionnaire. Format the Count column as numbers and the Percentage column as percentages.",,
+,,
+Q1. Gender,,
+Answer,Count,Percentage
+Male,"=COUNTIF(Data!$B$2:$B$11,A6)","=IF($B$9=0,0,B6/$B$9)"
+Female,"=COUNTIF(Data!$B$2:$B$11,A7)","=IF($B$9=0,0,B7/$B$9)"
+Prefer not to say,"=COUNTIF(Data!$B$2:$B$11,A8)","=IF($B$9=0,0,B8/$B$9)"
+Total,"=SUM(B6:B8)","=SUM(C6:C8)"
+,,
+Q2. Grade,,
+Answer,Count,Percentage
+Grade 8,"=COUNTIF(Data!$C$2:$C$11,A13)","=IF($B$18=0,0,B13/$B$18)"
+Grade 9,"=COUNTIF(Data!$C$2:$C$11,A14)","=IF($B$18=0,0,B14/$B$18)"
+Grade 10,"=COUNTIF(Data!$C$2:$C$11,A15)","=IF($B$18=0,0,B15/$B$18)"
+Grade 11,"=COUNTIF(Data!$C$2:$C$11,A16)","=IF($B$18=0,0,B16/$B$18)"
+Grade 12,"=COUNTIF(Data!$C$2:$C$11,A17)","=IF($B$18=0,0,B17/$B$18)"
+Total,"=SUM(B13:B17)","=SUM(C13:C17)"
+,,
+Q3. How concerned are you about climate change?,,
+Answer,Count,Percentage
+Very concerned,"=COUNTIF(Data!$D$2:$D$11,A22)","=IF($B$26=0,0,B22/$B$26)"
+Somewhat concerned,"=COUNTIF(Data!$D$2:$D$11,A23)","=IF($B$26=0,0,B23/$B$26)"
+Not very concerned,"=COUNTIF(Data!$D$2:$D$11,A24)","=IF($B$26=0,0,B24/$B$26)"
+Not concerned at all,"=COUNTIF(Data!$D$2:$D$11,A25)","=IF($B$26=0,0,B25/$B$26)"
+Total,"=SUM(B22:B25)","=SUM(C22:C25)"
+,,
+Q4. Can technology help to reduce the effects of climate change?,,
+Answer,Count,Percentage
+"Yes, a lot","=COUNTIF(Data!$E$2:$E$11,A30)","=IF($B$34=0,0,B30/$B$34)"
+"Yes, a little","=COUNTIF(Data!$E$2:$E$11,A31)","=IF($B$34=0,0,B31/$B$34)"
+No,"=COUNTIF(Data!$E$2:$E$11,A32)","=IF($B$34=0,0,B32/$B$34)"
+I am not sure,"=COUNTIF(Data!$E$2:$E$11,A33)","=IF($B$34=0,0,B33/$B$34)"
+Total,"=SUM(B30:B33)","=SUM(C30:C33)"
+,,
+Q5. Which technology is the most effective against climate change?,,
+Answer,Count,Percentage
+Solar and wind power,"=COUNTIF(Data!$F$2:$F$11,A38)","=IF($B$43=0,0,B38/$B$43)"
+Electric vehicles,"=COUNTIF(Data!$F$2:$F$11,A39)","=IF($B$43=0,0,B39/$B$43)"
+Smart farming,"=COUNTIF(Data!$F$2:$F$11,A40)","=IF($B$43=0,0,B40/$B$43)"
+Recycling technologies,"=COUNTIF(Data!$F$2:$F$11,A41)","=IF($B$43=0,0,B41/$B$43)"
+Eco-friendly apps,"=COUNTIF(Data!$F$2:$F$11,A42)","=IF($B$43=0,0,B42/$B$43)"
+Total,"=SUM(B38:B42)","=SUM(C38:C42)"
+,,
+Q6. Should electric vehicles replace petrol and diesel vehicles?,,
+Answer,Count,Percentage
+Strongly agree,"=COUNTIF(Data!$G$2:$G$11,A47)","=IF($B$51=0,0,B47/$B$51)"
+Agree,"=COUNTIF(Data!$G$2:$G$11,A48)","=IF($B$51=0,0,B48/$B$51)"
+Disagree,"=COUNTIF(Data!$G$2:$G$11,A49)","=IF($B$51=0,0,B49/$B$51)"
+Strongly disagree,"=COUNTIF(Data!$G$2:$G$11,A50)","=IF($B$51=0,0,B50/$B$51)"
+Total,"=SUM(B47:B50)","=SUM(C47:C50)"
+,,
+Q7. Which eco-friendly technologies does your household use?,,
+Technology,Households using it,Percentage of respondents
+Solar panels or a solar geyser,"=COUNTIF(Data!$H$2:$H$11,""Yes"")","=IF($B$60=0,0,B55/$B$60)"
+Recycling bins or recycling services,"=COUNTIF(Data!$I$2:$I$11,""Yes"")","=IF($B$60=0,0,B56/$B$60)"
+An eco-friendly app,"=COUNTIF(Data!$J$2:$J$11,""Yes"")","=IF($B$60=0,0,B57/$B$60)"
+An electric or hybrid vehicle,"=COUNTIF(Data!$K$2:$K$11,""Yes"")","=IF($B$60=0,0,B58/$B$60)"
+None of these,"=COUNTIF(Data!$L$2:$L$11,""Yes"")","=IF($B$60=0,0,B59/$B$60)"
+Number of respondents,"=COUNTA(Data!$A$2:$A$11)",
+,,
+Q8. How often do you use technology to make greener choices?,,
+Answer,Count,Percentage
+Often,"=COUNTIF(Data!$M$2:$M$11,A64)","=IF($B$68=0,0,B64/$B$68)"
+Sometimes,"=COUNTIF(Data!$M$2:$M$11,A65)","=IF($B$68=0,0,B65/$B$68)"
+Rarely,"=COUNTIF(Data!$M$2:$M$11,A66)","=IF($B$68=0,0,B66/$B$68)"
+Never,"=COUNTIF(Data!$M$2:$M$11,A67)","=IF($B$68=0,0,B67/$B$68)"
+Total,"=SUM(B64:B67)","=SUM(C64:C67)"
+,,
+Q9. How much could your school help the environment by using technology?,,
+Answer,Count,Percentage
+A lot,"=COUNTIF(Data!$N$2:$N$11,A72)","=IF($B$75=0,0,B72/$B$75)"
+A little,"=COUNTIF(Data!$N$2:$N$11,A73)","=IF($B$75=0,0,B73/$B$75)"
+Nothing,"=COUNTIF(Data!$N$2:$N$11,A74)","=IF($B$75=0,0,B74/$B$75)"
+Total,"=SUM(B72:B74)","=SUM(C72:C74)"
+,,
+Q10. How much do you know about technologies used against climate change?,,
+Answer,Count,Percentage
+A lot,"=COUNTIF(Data!$O$2:$O$11,A79)","=IF($B$82=0,0,B79/$B$82)"
+A little,"=COUNTIF(Data!$O$2:$O$11,A80)","=IF($B$82=0,0,B80/$B$82)"
+Nothing,"=COUNTIF(Data!$O$2:$O$11,A81)","=IF($B$82=0,0,B81/$B$82)"
+Total,"=SUM(B79:B81)","=SUM(C79:C81)"
+,,
+Summary statistics,,
+Measure,Value,
+Number of respondents,"=COUNTA(Data!$A$2:$A$11)",
+Most popular answer for Q5,"=INDEX(A38:A42,MATCH(MAX(B38:B42),B38:B42,0))",
+Number of votes for that answer,"=MAX(B38:B42)",
+Respondents very or somewhat concerned about climate change,"=B22+B23",
+Percentage very or somewhat concerned,"=IF(B86=0,0,B89/B86)",
+Respondents who think technology can help (a lot or a little),"=B30+B31",
+Percentage who think technology can help,"=IF(B86=0,0,B91/B86)",
+Average number of eco-friendly technologies per household,"=IF(B86=0,0,SUM(B55:B58)/B86)",
+Households using none of the listed technologies,"=B59",
