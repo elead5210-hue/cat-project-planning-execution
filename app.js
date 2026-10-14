@@ -13,6 +13,9 @@
     // Container that views are rendered into (set when the page loads).
     root: null,
 
+    // Name of the view being shown, or null if no view is shown (for example a message).
+    currentView: null,
+
     // Registered views: name -> function(container) that renders the view.
     views: {},
 
@@ -25,6 +28,12 @@
         throw new Error("The view '" + name + "' needs a render function.");
       }
       App.views[name] = renderFn;
+
+      // If the app has already started and is only showing a message, show the
+      // step list view as soon as it registers.
+      if (App.root && name === "steps" && App.currentView === null) {
+        App.showView("steps");
+      }
     },
 
     // Remove everything from the mount point.
@@ -44,12 +53,14 @@
         throw new Error("There is no view named '" + name + "'.");
       }
       App.clear();
+      App.currentView = name;
       renderFn(App.root);
     },
 
     // Show a simple message in the mount point.
     showMessage: function (text) {
       App.clear();
+      App.currentView = null;
       var paragraph = document.createElement("p");
       paragraph.className = "muted";
       paragraph.textContent = text;
@@ -74,7 +85,10 @@
 
   window.App = App;
 
-  if (document.readyState === "loading") {
+  // Scripts with the defer attribute run while readyState is "interactive", before
+  // DOMContentLoaded fires. Wait for that event so that the other scripts have
+  // registered their views, and only start straight away if the page has fully loaded.
+  if (document.readyState !== "complete") {
     document.addEventListener("DOMContentLoaded", App.start);
   } else {
     App.start();
